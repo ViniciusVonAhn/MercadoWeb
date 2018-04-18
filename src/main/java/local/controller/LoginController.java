@@ -52,4 +52,9 @@ public class LoginController {
 		return LoginDAO.save(login);
 		
 	}
+	
+	@GetMapping("/busca/{usuario}")
+	public List<Login> busca(@PathVariable("usuario")String usuario) {
+		return LoginDAO.findByUsuarioIgnoreCase(usuario);
+	}
 }
