@@ -1,6 +1,7 @@
 package local.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +36,11 @@ public class LoginController {
 		return LoginDAO.findAll();
 	}
 	
+	@GetMapping("/{id}")
+	public Optional<Login> listarUm(@PathVariable Integer id) {
+		return LoginDAO.findById(id);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void remover(@PathVariable Integer id) {
 		LoginDAO.deleteById(id);
@@ -42,12 +48,8 @@ public class LoginController {
 	}
 	
 	@PutMapping("/alterar")
-	public void alterar(String usuario, String senha, Integer id) {
-		Login user = new Login();
-		user.setId(id);
-		user.setUsuario(usuario);
-		user.setSenha(senha);
-	    LoginDAO.save(user);
+	public Login alterar(@RequestBody Login login) {
+		return LoginDAO.save(login);
 		
 	}
 }
