@@ -1,13 +1,15 @@
 package local.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 
 @Entity
 public class Login extends GenericModel{
 
-	
+	@Column(nullable=false)
 	private String usuario;
+	@Column(nullable=false)
 	private String senha;
 	
 	
