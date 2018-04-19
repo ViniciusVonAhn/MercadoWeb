@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/spring-boot-heroku.jar
+web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS -jar target/APX-0.0.1-SNAPSHOT.jar
