@@ -23,7 +23,6 @@ public class LoginController {
 	@Autowired
 	private LoginRepository LoginDAO;
 	
-	
 	@PostMapping("/cadastro")
 	public void cadastrar(String usuario, String senha) {
 		Login user = new Login();
