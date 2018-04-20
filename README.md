@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ViniciusVonAhn/MercadoWeb.svg?branch=master)](https://travis-ci.org/ViniciusVonAhn/MercadoWeb)
 # MercadoWeb
 
 ### Aplicação simples para um mercado!
