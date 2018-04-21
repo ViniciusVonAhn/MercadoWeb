@@ -1,7 +1,6 @@
 package local.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Produto extends GenericModel{
