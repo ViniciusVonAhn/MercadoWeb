@@ -1,5 +1,7 @@
 package local.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,10 +12,12 @@ public class Produto extends GenericModel{
 	@Column(name="codigo_de_barra")
 	private String codigoDeBarra;
 	@Column(nullable=false)
-	private double estoque;
-	@Column(name="valor_un", nullable=false)
+	private int estoque;
+	@Column(name="valor_un", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorUn;
-	
+	@Column(name="venda_produto", nullable=false)
+	@OneToMany(mappedBy = "produto")
+	private List<Venda> vendaListProduto;
 	
 	public String getNome() {
 		return nome;
@@ -30,7 +34,7 @@ public class Produto extends GenericModel{
 	public double getEstoque() {
 		return estoque;
 	}
-	public void setEstoque(double estoque) {
+	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
 	public double getValorUn() {
@@ -39,6 +43,13 @@ public class Produto extends GenericModel{
 	public void setValorUn(double valorUn) {
 		this.valorUn = valorUn;
 	}
+	public List<Venda> getVendaListProduto() {
+		return vendaListProduto;
+	}
+	public void setVendaListProduto(List<Venda> vendaListProduto) {
+		this.vendaListProduto = vendaListProduto;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -50,8 +61,10 @@ public class Produto extends GenericModel{
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		temp = Double.doubleToLongBits(valorUn);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((vendaListProduto == null) ? 0 : vendaListProduto.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -74,6 +87,11 @@ public class Produto extends GenericModel{
 		} else if (!nome.equals(other.nome))
 			return false;
 		if (Double.doubleToLongBits(valorUn) != Double.doubleToLongBits(other.valorUn))
+			return false;
+		if (vendaListProduto == null) {
+			if (other.vendaListProduto != null)
+				return false;
+		} else if (!vendaListProduto.equals(other.vendaListProduto))
 			return false;
 		return true;
 	}
