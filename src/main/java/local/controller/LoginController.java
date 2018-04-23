@@ -25,7 +25,7 @@ public class LoginController {
 	@Autowired
 	private LoginRepository LoginDAO;
 	
-	@PostMapping("/cadastro")
+	@PostMapping
 	public void cadastrar(String usuario, String senha) {
 		Login user = new Login();
 		user.setUsuario(usuario);
@@ -33,7 +33,7 @@ public class LoginController {
 		LoginDAO.save(user);
 	}
 	
-	@GetMapping("/lista")
+	@GetMapping
 	public List<Login> listar(){
 		return LoginDAO.findAll();
 	}
@@ -49,13 +49,13 @@ public class LoginController {
 		
 	}
 	
-	@PutMapping("/alterar")
+	@PutMapping
 	public Login alterar(@RequestBody Login login) {
 		return LoginDAO.save(login);
 		
 	}
 	
-	@GetMapping("/busca/{usuario}")
+	@GetMapping("/{usuario}")
 	public List<Login> busca(@PathVariable("usuario")String usuario) {
 		return LoginDAO.findByUsuarioIgnoreCase(usuario);
 	}

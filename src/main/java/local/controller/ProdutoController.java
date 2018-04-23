@@ -24,12 +24,12 @@ public class ProdutoController {
 
 	@Autowired ProdutoRepository ProdutoDAO;
 	
-	@PostMapping("/cadastro")
+	@PostMapping
 	public Produto cadastrar(Produto produto) {
 		return ProdutoDAO.save(produto);
 	}
 	
-	@GetMapping("/lista")
+	@GetMapping
 	public List<Produto> listar(){
 		return ProdutoDAO.findAll();
 	}
@@ -44,12 +44,12 @@ public class ProdutoController {
 		ProdutoDAO.deleteById(id);
 	}
 	
-	@PutMapping("/alterar")
+	@PutMapping
 	public Produto alterar(@RequestBody Produto produto) {
 		return ProdutoDAO.save(produto);
 	}
 	
-	@GetMapping("/busca/{nome}")
+	@GetMapping("/{nome}")
 	public List<Produto> busca(@PathVariable("nome")String nome) {
 		return ProdutoDAO.findByNomeIgnoreCase(nome);
 	}
