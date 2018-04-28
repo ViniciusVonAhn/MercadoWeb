@@ -2,7 +2,7 @@
 # MercadoWeb
 
 ### Documentação e Rotas
-[Documentação e Rotas](https://documenter.getpostman.com/collection/view/3889713-c15237ed-5ec0-4ad7-9f9c-657e1a474766)
+[Documentação e Rotas](https://documenter.getpostman.com/view/3889713/mercadoweb/RW1Yr26N)
 
 ### Aplicação simples para um mercado!
 
