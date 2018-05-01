@@ -49,7 +49,7 @@ public class ProdutoController {
 		return ProdutoDAO.save(produto);
 	}
 	
-	@GetMapping("/{nome}")
+	@GetMapping("/nome/{nome}")
 	public List<Produto> busca(@PathVariable("nome")String nome) {
 		return ProdutoDAO.findByNomeIgnoreCase(nome);
 	}

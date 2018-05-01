@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produto{
 	
@@ -24,6 +26,7 @@ public class Produto{
 	@Column(name="valor_un", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorUn;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "produto")
 	private List<Cupom> cupom;
 
