@@ -25,7 +25,7 @@ public class ProdutoController {
 	@Autowired ProdutoRepository ProdutoDAO;
 	
 	@PostMapping
-	public Produto cadastrar(Produto produto) {
+	public Produto cadastrar(@RequestBody Produto produto) {
 		return ProdutoDAO.save(produto);
 	}
 	

@@ -26,11 +26,8 @@ public class LoginController {
 	private LoginRepository LoginDAO;
 	
 	@PostMapping
-	public void cadastrar(String usuario, String senha) {
-		Login user = new Login();
-		user.setUsuario(usuario);
-		user.setSenha(senha);
-		LoginDAO.save(user);
+	public Login cadastrar(@RequestBody Login login) {
+		return LoginDAO.save(login);
 	}
 	
 	@GetMapping
