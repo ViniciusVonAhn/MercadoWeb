@@ -1,7 +1,5 @@
 package local.model;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +12,7 @@ public class Empresa extends GenericModel{
 	private String cnpj;
 
 	@OneToOne(mappedBy = "empresa")
-	private Cupom cupom;
+	private Venda venda;
 
 	public String getNome() {
 		return nome;
@@ -32,12 +30,12 @@ public class Empresa extends GenericModel{
 		this.cnpj = cnpj;
 	}
 
-	public Cupom getCupom() {
-		return cupom;
+	public Venda getVenda() {
+		return venda;
 	}
 
-	public void setCupom(Cupom cupom) {
-		this.cupom = cupom;
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 
 	
