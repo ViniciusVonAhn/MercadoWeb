@@ -11,4 +11,5 @@ import local.model.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
 
 	List<Produto> findByNomeIgnoreCase(String nome);
+	
 }
