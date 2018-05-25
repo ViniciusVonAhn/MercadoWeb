@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -22,7 +24,7 @@ public class Cupom{
 	@Column(name="valor_produto", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorProduto;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id", nullable = false, insertable = false, updatable = false)
 	private Produto produto;
 	

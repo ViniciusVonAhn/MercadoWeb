@@ -31,7 +31,6 @@ public class CupomController {
 	
 	@PostMapping
 	public Cupom cadCupom(@RequestBody Cupom cupom) {
-		 Produto produto;
 		 int quantCupom = cupom.getQuantVendida();
 		 System.out.println(quantCupom);
 		 System.out.println(cupom.getProduto().getEstoque());
@@ -39,6 +38,7 @@ public class CupomController {
 		 int estoque = cupom.getProduto().getEstoque() - quantCupom;
 		 cupom.getProduto().setEstoque(estoque);
 		 return CupomDAO.save(cupom);
+		 
 	}
 	
 	@GetMapping
