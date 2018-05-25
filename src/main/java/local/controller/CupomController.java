@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,13 +31,14 @@ public class CupomController {
 	
 	@PostMapping
 	public Cupom cadCupom(@RequestBody Cupom cupom) {
-		
+		 Produto produto;
 		 int quantCupom = cupom.getQuantVendida();
 		 System.out.println(quantCupom);
 		 System.out.println(cupom.getProduto().getEstoque());
 		 System.out.println(cupom.getProduto().getEstoque() - quantCupom);
-		return CupomDAO.save(cupom);
-		
+		 int estoque = cupom.getProduto().getEstoque() - quantCupom;
+		 cupom.getProduto().setEstoque(estoque);
+		 return CupomDAO.save(cupom);
 	}
 	
 	@GetMapping
