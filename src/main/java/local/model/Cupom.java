@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -16,13 +18,13 @@ public class Cupom{
             @AttributeOverride(name = "produto_id", column = @Column(name = "produto_id", nullable = false)) })
 	private CupomID id;
 	
-	@Column(name="quant_vendida", nullable=false, columnDefinition="Decimal(9,2)")
-	private double quantVendida;
+	@Column(name="quant_vendida", nullable=false)
+	private int quantVendida;
 	
 	@Column(name="valor_produto", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorProduto;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id", nullable = false, insertable = false, updatable = false)
 	private Produto produto;
 	
@@ -38,11 +40,11 @@ public class Cupom{
 		this.id = id;
 	}
 
-	public double getQuantVendida() {
+	public int getQuantVendida() {
 		return quantVendida;
 	}
 
-	public void setQuantVendida(double quantVendida) {
+	public void setQuantVendida(int quantVendida) {
 		this.quantVendida = quantVendida;
 	}
 
