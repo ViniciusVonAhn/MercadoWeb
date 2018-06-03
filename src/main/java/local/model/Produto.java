@@ -11,8 +11,8 @@ public class Produto{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "produto_id", unique = true, nullable = false)
-	private int produto_id;
+	@Column(name = "id", unique = true, nullable = false)
+	private int id;
 	
 	@Column(nullable=false)
 	private String nome;
@@ -30,12 +30,12 @@ public class Produto{
 	@OneToMany(mappedBy = "produto")
 	private List<Cupom> cupom;
 
-	public int getProduto_id() {
-		return produto_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setProduto_id(int produto_id) {
-		this.produto_id = produto_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {

@@ -46,7 +46,7 @@ public class LoginController {
 		
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	public Login alterar(@RequestBody Login login) {
 		return LoginDAO.save(login);
 		

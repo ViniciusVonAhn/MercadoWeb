@@ -48,9 +48,11 @@ public class ProdutoController {
 		ProdutoDAO.deleteById(id);
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto) {
+		System.out.println("entrei no primeiro");
 		Produto prod = ProdutoDAO.save(produto);
+		System.out.println("passei do save");
 		return new ResponseEntity<Produto>(prod, HttpStatus.OK);
 
 	}
