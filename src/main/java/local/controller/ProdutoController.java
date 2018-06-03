@@ -48,8 +48,8 @@ public class ProdutoController {
 		ProdutoDAO.deleteById(id);
 	}
 	
-	@PutMapping
-	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto) {
+	@PutMapping("/{id}")
+	public ResponseEntity<Produto> alterar(@RequestBody Produto produto) {
 		Produto prod = ProdutoDAO.save(produto);
 		return new ResponseEntity<Produto>(prod, HttpStatus.OK);
 
