@@ -43,6 +43,11 @@ public class ProdutoController {
 		return ProdutoDAO.findById(id);
 	}
 	
+	@GetMapping("barra/{codigoDeBarra}")
+	public List<Produto> listarCodBarra(@PathVariable String codigoDeBarra) {
+		return ProdutoDAO.findBycodigoDeBarraIgnoreCase(codigoDeBarra);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void remover(@PathVariable Integer id) {
 		ProdutoDAO.deleteById(id);
