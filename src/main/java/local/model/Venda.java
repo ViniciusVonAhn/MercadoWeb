@@ -5,14 +5,16 @@ import java.sql.Time;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Venda extends GenericModel{
 
-	@Column(nullable=false)
+	@Column
 	private Date data;
 	
-	@Column(nullable=false)
+	@Column
 	private Time time;
 	
 	@Column(name="valor_total", nullable=false, columnDefinition="Decimal(9,2)")
@@ -24,10 +26,10 @@ public class Venda extends GenericModel{
 	@Column(name="valor_troco", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorTroco;
 	
-	@Column(nullable=true)
+	@Column
 	private String cpf;
 	
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@JoinColumns({
 		  @JoinColumn(name = "cupom_id", insertable = false, updatable = false),
 		  @JoinColumn(name = "produto_id", insertable = false, updatable = false)
@@ -35,8 +37,23 @@ public class Venda extends GenericModel{
 	private Cupom cupom;
 
 	@OneToOne
-	@JoinColumn(name="empresa_id", nullable=false)
+	@JsonIgnore
+	@JoinColumn(name="empresa_id")
 	private Empresa empresa;
+
+	public Venda() {
+		super();
+	}
+
+	public Venda(Date data, Time time, double valorTotal, double valorRecebido, double valorTroco, String cpf) {
+		super();
+		this.data = data;
+		this.time = time;
+		this.valorTotal = valorTotal;
+		this.valorRecebido = valorRecebido;
+		this.valorTroco = valorTroco;
+		this.cpf = cpf;
+	}
 
 	public Date getData() {
 		return data;
