@@ -34,6 +34,7 @@ public class Venda extends GenericModel{
 		  @JoinColumn(name = "cupom_id", insertable = false, updatable = false),
 		  @JoinColumn(name = "produto_id", insertable = false, updatable = false)
 		})
+	@JsonIgnore
 	private Cupom cupom;
 
 	@OneToOne

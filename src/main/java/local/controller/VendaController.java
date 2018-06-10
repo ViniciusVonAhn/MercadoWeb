@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,8 @@ public class VendaController {
 	
 	
 	@PostMapping
-	public void vender(Venda venda) {
-		VendaDAO.save(venda);
+	public Venda vender(@RequestBody Venda venda) {
+		return VendaDAO.save(venda);
 	}
 	
 	@GetMapping
