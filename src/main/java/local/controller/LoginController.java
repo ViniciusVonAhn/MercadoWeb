@@ -19,7 +19,7 @@ import local.model.Login;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("*")
 public class LoginController {
 
 	@Autowired

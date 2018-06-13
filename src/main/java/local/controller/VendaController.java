@@ -16,7 +16,7 @@ import local.repository.VendaRepository;
 
 @RestController
 @RequestMapping("/venda")
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("*")
 public class VendaController {
 
 	@Autowired VendaRepository VendaDAO;

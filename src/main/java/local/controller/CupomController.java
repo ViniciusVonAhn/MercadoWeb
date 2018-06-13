@@ -20,7 +20,7 @@ import local.repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/cupom")
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("*")
 public class CupomController {
 
 	@Autowired
