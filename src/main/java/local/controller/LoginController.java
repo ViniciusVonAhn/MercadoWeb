@@ -52,7 +52,7 @@ public class LoginController {
 		
 	}
 	
-	@GetMapping("/{usuario}")
+	@GetMapping("/busca/{usuario}")
 	public List<Login> busca(@PathVariable("usuario")String usuario) {
 		return LoginDAO.findByUsuarioIgnoreCase(usuario);
 	}
