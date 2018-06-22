@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +53,13 @@ public class CupomController {
 	 */
 	public Optional<Cupom> listaUm(@PathVariable Integer id){
 		return CupomDAO.findById(id);
+	}
+	
+	@DeleteMapping("/{cupom_id}/{produto_id}")
+	public void remover(@PathVariable Integer cupom_id,
+						@PathVariable Integer produto_id ) {
+		//CupomDAO.deleteById(cupom_id, produto_id);
+		CupomDAO.deleteUsingSingleQuery(cupom_id, produto_id);
 	}
 	
 }
