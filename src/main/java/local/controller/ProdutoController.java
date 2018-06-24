@@ -1,12 +1,17 @@
 package local.controller;
 
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,17 +21,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import local.model.Produto;
 import local.repository.ProdutoRepository;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @RestController
 @RequestMapping("/produto")
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("*")
 public class ProdutoController {
 
 	@Autowired ProdutoRepository ProdutoDAO;
+	
+	@GetMapping("/PDF")
+	public ResponseEntity<byte[]> PDF(HttpServletResponse response) throws JRException {
+		List<Produto> produtos = ProdutoDAO.findAll();
+		Map<String, Object> parametros = new HashMap<>();
+		InputStream inputStream = getClass().getResourceAsStream("/reports/Produtos.jrxml");
+		JasperReport is = JasperCompileManager.compileReport(inputStream);
+		JasperPrint print = JasperFillManager.fillReport(is, parametros, new JRBeanCollectionDataSource(produtos));
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE).body(JasperExportManager.exportReportToPdf(print));
+	}
+	
 	
 	@PostMapping
 	public Produto cadastrar(@RequestBody Produto produto) {
