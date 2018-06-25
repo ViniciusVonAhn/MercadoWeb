@@ -1,15 +1,16 @@
 package local.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import local.model.Login;
+import local.model.Usuario;
 
 @Repository
-public interface LoginRepository extends JpaRepository<Login, Integer>{
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
-	List<Login> findByUsuarioIgnoreCase(String usuario);
+	Optional<Usuario> findByNome(String nome);
 
 }
