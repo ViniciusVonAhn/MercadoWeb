@@ -14,46 +14,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import local.repository.LoginRepository;
-import local.model.Login;
+import local.repository.UsuarioRepository;
+import local.model.Usuario;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/usuario")
 @CrossOrigin("*")
-public class LoginController {
+public class UsuarioController {
 
 	@Autowired
-	private LoginRepository LoginDAO;
+	private UsuarioRepository UsuarioDAO;
 	
 	@PostMapping
-	public Login cadastrar(@RequestBody Login login) {
-		return LoginDAO.save(login);
+	public Usuario cadastrar(@RequestBody Usuario usuario) {
+		return UsuarioDAO.save(usuario);
 	}
 	
 	@GetMapping
-	public List<Login> listar(){
-		return LoginDAO.findAll();
+	public List<Usuario> listar(){
+		return UsuarioDAO.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Login> listarUm(@PathVariable Integer id) {
-		return LoginDAO.findById(id);
+	public Optional<Usuario> listarUm(@PathVariable Integer id) {
+		return UsuarioDAO.findById(id);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void remover(@PathVariable Integer id) {
-		LoginDAO.deleteById(id);
+		UsuarioDAO.deleteById(id);
 		
 	}
 	
 	@PutMapping("/{id}")
-	public Login alterar(@RequestBody Login login) {
-		return LoginDAO.save(login);
+	public Usuario alterar(@RequestBody Usuario usuario) {
+		return UsuarioDAO.save(usuario);
 		
 	}
 	
-	@GetMapping("/busca/{usuario}")
-	public List<Login> busca(@PathVariable("usuario")String usuario) {
-		return LoginDAO.findByUsuarioIgnoreCase(usuario);
-	}
+	//@GetMapping("/busca/{nome}")
+//	public List<Usuario> busca(@PathVariable("nome")String nome) {
+		//return UsuarioDAO.findByNomeIgnoreCase(nome);
+	//}
 }

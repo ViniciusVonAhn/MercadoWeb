@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,7 @@ public class ProdutoController {
 	@Autowired ProdutoRepository ProdutoDAO;
 	
 	@GetMapping("/PDF")
+	//@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public ResponseEntity<byte[]> PDF(HttpServletResponse response) throws JRException {
 		List<Produto> produtos = ProdutoDAO.findAll();
 		Map<String, Object> parametros = new HashMap<>();
@@ -53,31 +55,37 @@ public class ProdutoController {
 	
 	
 	@PostMapping
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public Produto cadastrar(@RequestBody Produto produto) {
 		return ProdutoDAO.save(produto);
 	}
 	
 	@GetMapping
+	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> listar(){
 		return ProdutoDAO.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public Optional<Produto> listarUm(@PathVariable Integer id) {
 		return ProdutoDAO.findById(id);
 	}
 	
 	@GetMapping("barra/{codigoDeBarra}")
+	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> listarCodBarra(@PathVariable String codigoDeBarra) {
 		return ProdutoDAO.findBycodigoDeBarraIgnoreCase(codigoDeBarra);
 	}
 	
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public void remover(@PathVariable Integer id) {
 		ProdutoDAO.deleteById(id);
 	}
 	
 	@PutMapping("/{id}")
+	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public ResponseEntity<Produto> alterar(@RequestBody Produto produto) {
 		Produto prod = ProdutoDAO.save(produto);
 		return new ResponseEntity<Produto>(prod, HttpStatus.OK);
@@ -85,6 +93,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/nome/{nome}")
+	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> busca(@PathVariable("nome")String nome) {
 		return ProdutoDAO.findByNomeIgnoreCase(nome);
 	}
