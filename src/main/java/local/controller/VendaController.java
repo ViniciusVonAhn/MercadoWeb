@@ -30,7 +30,7 @@ public class VendaController {
 	}
 	
 	@GetMapping
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Venda> listar(){
 		return VendaDAO.findAll();
 	}

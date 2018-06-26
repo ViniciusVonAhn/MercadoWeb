@@ -61,19 +61,19 @@ public class ProdutoController {
 	}
 	
 	@GetMapping
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> listar(){
 		return ProdutoDAO.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public Optional<Produto> listarUm(@PathVariable Integer id) {
 		return ProdutoDAO.findById(id);
 	}
 	
 	@GetMapping("barra/{codigoDeBarra}")
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> listarCodBarra(@PathVariable String codigoDeBarra) {
 		return ProdutoDAO.findBycodigoDeBarraIgnoreCase(codigoDeBarra);
 	}
@@ -93,7 +93,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/nome/{nome}")
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Produto> busca(@PathVariable("nome")String nome) {
 		return ProdutoDAO.findByNomeIgnoreCase(nome);
 	}

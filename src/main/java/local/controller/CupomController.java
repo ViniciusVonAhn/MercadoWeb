@@ -45,7 +45,7 @@ public class CupomController {
 	}
 	
 	@GetMapping
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public List<Cupom> listar(){
 		return CupomDAO.findAll();
 	}
@@ -54,7 +54,7 @@ public class CupomController {
 	/*
 	 * Não está funcionando, verificar a existencia das classes Cupom e CupomID.
 	 */
-	@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
 	public Optional<Cupom> listaUm(@PathVariable Integer id){
 		return CupomDAO.findById(id);
 	}
