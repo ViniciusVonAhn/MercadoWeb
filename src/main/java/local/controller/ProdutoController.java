@@ -53,6 +53,11 @@ public class ProdutoController {
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE).body(JasperExportManager.exportReportToPdf(print));
 	}
 	
+	@GetMapping("estoque/{estoque}")
+	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+	public List<Produto> listaEstoque(@PathVariable int estoque) {
+		return ProdutoDAO.estoqueFind(estoque);
+	}
 	
 	@PostMapping
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
