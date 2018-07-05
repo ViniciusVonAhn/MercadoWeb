@@ -26,7 +26,7 @@ public class UsuarioController {
 	private UsuarioRepository UsuarioDAO;
 	
 	@PostMapping
-	public Usuario cadastrar(@RequestBody Usuario usuario) {
+	public Usuario cadastrar(@RequestBody Usuario usuario) {	
 		return UsuarioDAO.save(usuario);
 	}
 	
@@ -52,8 +52,8 @@ public class UsuarioController {
 		
 	}
 	
-	//@GetMapping("/busca/{nome}")
-//	public List<Usuario> busca(@PathVariable("nome")String nome) {
-		//return UsuarioDAO.findByNomeIgnoreCase(nome);
-	//}
+	@GetMapping("/busca/{nome}")
+	public List<Usuario> busca(@PathVariable("nome")String nome) {
+		return UsuarioDAO.findByNome(nome);
+	}
 }

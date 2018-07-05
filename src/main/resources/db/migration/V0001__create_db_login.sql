@@ -1,7 +1,8 @@
 CREATE TABLE usuario (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL,
-	senha VARCHAR(250) NOT NULL
+	senha VARCHAR(250) NOT NULL,
+	role VARCHAR(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE permissao (
@@ -17,8 +18,8 @@ CREATE TABLE usuario_permissao (
 	FOREIGN KEY (id_permissao) REFERENCES permissao(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO usuario (id, nome, senha) values (1, 'Admin', '{bcrypt}$2a$10$mo44B11jalNRuKbL3LbqSO6FSfSMS6.NInDv6kI7OxVetV1mMQzt2');
-INSERT INTO usuario (id, nome, senha) values (2, 'User', '{bcrypt}$2a$10$UqtpDXm9zJtB5dxoY9W4CeQ5X/CkTx2CRJv4hx3NAHEr2rngBiKda');
+INSERT INTO usuario (id, nome, senha, role) values (1, 'admin', 'admin', 'ROLE_ADMIN');
+INSERT INTO usuario (id, nome, senha, role) values (2, 'user', 'user', 'ROLE_USER');
 
 INSERT INTO permissao (id,descricao) values (1,'ROLE_ADMIN');
 INSERT INTO permissao (id,descricao) values (2,'ROLE_USER');

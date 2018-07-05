@@ -8,14 +8,12 @@ import javax.persistence.*;
 @Entity
 public class Usuario extends GenericModel{
 
+	@Column
 	private String nome;
+	@Column
     private String senha;
-
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "id_usuario")
-            , inverseJoinColumns = @JoinColumn(name = "id_permissao"))
-    private List<Permissao> permissoes;
+	@Column
+    private String role;
 
     public String getNome() {
         return nome;
@@ -32,13 +30,12 @@ public class Usuario extends GenericModel{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public List<Permissao> getPermissoes() {
-        return permissoes;
-    }
-
-    public void setPermissoes(List<Permissao> permissoes) {
-        this.permissoes = permissoes;
-    }	
 	
+	public String getRole() {
+		return role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
 }

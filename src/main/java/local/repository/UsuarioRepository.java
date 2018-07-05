@@ -11,6 +11,8 @@ import local.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
-	Optional<Usuario> findByNome(String nome);
+	List<Usuario> findByNome(String nome);
+	
+	List<Usuario> findByNomeAndSenha(String nome, String senha);
 
 }
