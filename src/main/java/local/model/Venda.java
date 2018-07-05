@@ -121,5 +121,74 @@ public class Venda extends GenericModel{
 		this.empresa = empresa;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+		result = prime * result + ((cupom == null) ? 0 : cupom.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
+		result = prime * result + ((time == null) ? 0 : time.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(valorRecebido);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(valorTotal);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(valorTroco);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Venda other = (Venda) obj;
+		if (cpf == null) {
+			if (other.cpf != null)
+				return false;
+		} else if (!cpf.equals(other.cpf))
+			return false;
+		if (cupom == null) {
+			if (other.cupom != null)
+				return false;
+		} else if (!cupom.equals(other.cupom))
+			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (empresa == null) {
+			if (other.empresa != null)
+				return false;
+		} else if (!empresa.equals(other.empresa))
+			return false;
+		if (time == null) {
+			if (other.time != null)
+				return false;
+		} else if (!time.equals(other.time))
+			return false;
+		if (Double.doubleToLongBits(valorRecebido) != Double.doubleToLongBits(other.valorRecebido))
+			return false;
+		if (Double.doubleToLongBits(valorTotal) != Double.doubleToLongBits(other.valorTotal))
+			return false;
+		if (Double.doubleToLongBits(valorTroco) != Double.doubleToLongBits(other.valorTroco))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Venda [data=" + data + ", time=" + time + ", valorTotal=" + valorTotal + ", valorRecebido="
+				+ valorRecebido + ", valorTroco=" + valorTroco + ", cpf=" + cpf + ", cupom=" + cupom + ", empresa="
+				+ empresa + "]";
+	}
+
 	
 }
