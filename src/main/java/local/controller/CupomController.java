@@ -21,7 +21,7 @@ import local.repository.CupomRepository;
 import local.repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("/cupom")
+@RequestMapping("admin/cupom")
 @CrossOrigin("*")
 public class CupomController {
 

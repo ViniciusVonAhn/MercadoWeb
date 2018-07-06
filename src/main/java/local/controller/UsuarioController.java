@@ -18,7 +18,7 @@ import local.repository.UsuarioRepository;
 import local.model.Usuario;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("admin/usuario")
 @CrossOrigin("*")
 public class UsuarioController {
 

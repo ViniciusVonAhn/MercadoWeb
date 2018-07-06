@@ -16,7 +16,7 @@ import local.model.Venda;
 import local.repository.VendaRepository;
 
 @RestController
-@RequestMapping("/venda")
+@RequestMapping("admin/venda")
 @CrossOrigin("*")
 public class VendaController {
 
