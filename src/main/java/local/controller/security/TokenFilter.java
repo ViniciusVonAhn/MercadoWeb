@@ -32,7 +32,7 @@ public class TokenFilter extends GenericFilterBean {
 		String header = req.getHeader("Authorization");
 		System.out.println(header);
 		
-		if (req.getMethod().equals("GET")) {
+		if (req.getMethod().equals("GET") || req.getMethod().equals("OPTIONS")) {
 			chain.doFilter(request, response);
 			return;
 		}
