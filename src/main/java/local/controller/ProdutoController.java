@@ -41,8 +41,8 @@ public class ProdutoController {
 
 	@Autowired ProdutoRepository ProdutoDAO;
 	
-	@GetMapping("/PDF")
-	public ResponseEntity<byte[]> PDF(HttpServletResponse response) throws JRException {
+	@GetMapping("/prodpdf")
+	public ResponseEntity<byte[]> prodpdf(HttpServletResponse response) throws JRException {
 		List<Produto> produtos = ProdutoDAO.findAll();
 		Map<String, Object> parametros = new HashMap<>();
 		InputStream inputStream = getClass().getResourceAsStream("/reports/Produtos.jrxml");
@@ -51,10 +51,20 @@ public class ProdutoController {
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE).body(JasperExportManager.exportReportToPdf(print));
 	}
 	
-	@GetMapping("estoque/{estoque}")
-	//@PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
-	public List<Produto> listaEstoque(@PathVariable int estoque) {
-		return ProdutoDAO.estoqueFind(estoque);
+	@GetMapping("/estoquepdf/{estoque}")
+	public ResponseEntity<byte[]> estoquedpf(@PathVariable int estoque) throws JRException {
+		List<Produto> produtos = ProdutoDAO.estoqueFind(estoque);
+		Map<String, Object> parametros = new HashMap<>();
+		parametros.put("qtd", String.valueOf(estoque));
+		InputStream inputStream = getClass().getResourceAsStream("/reports/ProdutosE.jrxml");
+		JasperReport is = JasperCompileManager.compileReport(inputStream);
+		JasperPrint print = JasperFillManager.fillReport(is, parametros, new JRBeanCollectionDataSource(produtos));
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE).body(JasperExportManager.exportReportToPdf(print));
+	}
+	
+	@GetMapping("estoque/{qtd}")
+	public List<Produto> listaEstoque(@PathVariable int qtd) {
+		return ProdutoDAO.estoqueFind(qtd);
 	}
 	
 	@PostMapping

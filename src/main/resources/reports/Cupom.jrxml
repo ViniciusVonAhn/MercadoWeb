@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cupom" pageWidth="280" pageHeight="842" columnWidth="240" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7901ca6-9b80-49f1-8ffb-0c8211ab28f5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="quantVendida" class="java.lang.String"/>
+	<field name="valorProduto" class="java.lang.String"/>
+	<field name="valorItem" class="java.lang.String"/>
+	<field name="totalCupom" class="java.lang.String"/>
+	<field name="totalDinheiro" class="java.lang.String"/>
+	<field name="totalTroco" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="240" height="95" backcolor="#000000" uuid="15c5f0a9-8df5-4955-856d-e71dadeaf9bb"/>
+				<staticText>
+					<reportElement x="9" y="4" width="220" height="18" forecolor="#FFFFFF" uuid="8ca8211d-f468-4a9d-92e0-6a4d6eaa2e2f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Mercado Avenida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="9" y="22" width="220" height="16" forecolor="#FFFFFF" uuid="15380452-fe16-4b88-ac93-36955973a04a"/>
+					<text><![CDATA[Av. Brasil, 1234 - Centro - Rio Grande do Sul]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="38" width="220" height="16" forecolor="#FFFFFF" uuid="28bb64b7-04ec-4dd8-8fe5-50224b577086"/>
+					<text><![CDATA[CEP 96015-300 - Brasil ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="54" width="220" height="16" forecolor="#FFFFFF" uuid="18038c10-46cf-4625-bfde-2dff3e232ab8"/>
+					<text><![CDATA[CNPJ : 99.999.999/9999-99]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="70" width="112" height="16" forecolor="#FFFFFF" uuid="8546bf85-6cd4-42aa-ba02-9ef179fe4719"/>
+					<textElement textAlignment="Left"/>
+					<text><![CDATA[Cupom Nº 897546]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="240" height="35" backcolor="#B5B0B0" uuid="c8dd960c-b212-440c-abb9-4b57012f7b3d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="15" width="50" height="10" uuid="f50c67c5-1b13-4cb1-b772-a6df398baab9"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[ITEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="15" width="190" height="10" uuid="29c0893b-b9f5-441f-bf24-32f9a816008a"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[DESCRIÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="25" width="50" height="10" uuid="707bd3b6-0c6d-41bb-b46c-fbe60e1be974"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[QTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="25" width="60" height="10" uuid="7ec727db-f4bb-4c28-947f-b5e297cca952"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[VL_UNIT(R$)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-1" width="240" height="16" uuid="ee45e1f5-3204-44b5-b843-5b5eaa213afa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CUPOM FISCAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="25" width="60" height="10" uuid="daf1d84c-5591-49d3-8a8c-cd86b915dab5"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[VL_ITEM(R$)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="50" height="16" isRemoveLineWhenBlank="true" uuid="dfa77dd0-5793-49e2-8e91-044b0b73fea7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{id}]]></patternExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="50" y="0" width="190" height="16" isRemoveLineWhenBlank="true" uuid="c16c162e-7842-4e20-a40c-46f8f3ca9449"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				<patternExpression><![CDATA[$F{nome}]]></patternExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="16" width="50" height="16" isRemoveLineWhenBlank="true" uuid="bb12f735-cf8f-4022-9877-ad10f1b4b357"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantVendida}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="50" y="16" width="60" height="16" isRemoveLineWhenBlank="true" uuid="65f87b2b-2189-4a9a-bd43-2b4838109af1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorProduto}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="16" width="60" height="16" isRemoveLineWhenBlank="true" uuid="01a4df99-9240-4064-9cf8-e4ca67cc1707"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorItem}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="64" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="64" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="0" width="60" height="16" isRemoveLineWhenBlank="true" uuid="64a39913-bd23-4eef-8a70-e2b4b76a9634"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCupom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="0" width="70" height="16" uuid="f2e6a3ed-9afa-4ef3-a11d-5bae7eff460d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor Total R$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="16" width="70" height="16" uuid="da44ac4d-8159-44cb-bc1b-0300818afa05"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor Dinheiro R$]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="16" width="60" height="16" isRemoveLineWhenBlank="true" uuid="a2316ca8-1c5a-40fe-bff1-40e8baab55bf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalDinheiro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="32" width="70" height="16" uuid="f07912f5-c6cf-4b76-8055-23db471ead7d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor Dinheiro R$]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="32" width="60" height="16" isRemoveLineWhenBlank="true" uuid="79a40081-9203-4e84-8edd-08f88b2935b3"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalTroco}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="120" height="20" forecolor="#000000" uuid="146abb6e-7836-46ee-86b2-fde5f8d2dc36"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="120" y="0" width="120" height="20" uuid="f7b0655e-2ac3-4036-a02c-cbcef1945df1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

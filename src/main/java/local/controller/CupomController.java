@@ -28,9 +28,6 @@ public class CupomController {
 	@Autowired
 	private CupomRepository CupomDAO;
 	
-	@Autowired
-	private ProdutoRepository ProdutoDAO;
-	
 	@PostMapping
 	public Cupom cadCupom(@RequestBody Cupom cupom) {
 		 int quantCupom = cupom.getQuantVendida();
@@ -48,13 +45,6 @@ public class CupomController {
 		List<Cupom> lista = new ArrayList(CupomDAO.findAll());
 		return lista;
 	}
-	
-	/**@GetMapping("/{cupom_id}")
-	public List<Cupom> listarC(@PathVariable Integer cupom_id){
-		CupomID cupomId = new CupomID();
-		cupomId.setCupomId(cupom_id);
-		return CupomDAO.findAllByCupomIDCupomId(cupomId);
-	}*/
 	
 	@GetMapping("/{id}")
 	public List<Cupom> listaUm(@PathVariable Integer id){
