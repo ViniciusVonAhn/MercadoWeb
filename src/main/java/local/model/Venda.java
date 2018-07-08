@@ -1,8 +1,8 @@
 package local.model;
 
-import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.*;
 
@@ -13,10 +13,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Venda extends GenericModel{
 
 	@Column
-	private Timestamp data;
+	private LocalDate data;
 	
 	@Column
-	private Time time;
+	private LocalTime time;
 	
 	@Column(name="valor_total", nullable=false, columnDefinition="Decimal(9,2)")
 	private double valorTotal;
@@ -47,7 +47,7 @@ public class Venda extends GenericModel{
 		super();
 	}
 
-	public Venda(Timestamp data, Time time, double valorTotal, double valorRecebido, double valorTroco, String cpf) {
+	public Venda(LocalDate data, LocalTime time, double valorTotal, double valorRecebido, double valorTroco, String cpf, Empresa empresa) {
 		super();
 		this.data = data;
 		this.time = time;
@@ -55,21 +55,22 @@ public class Venda extends GenericModel{
 		this.valorRecebido = valorRecebido;
 		this.valorTroco = valorTroco;
 		this.cpf = cpf;
+		this.empresa = empresa;
 	}
 
-	public Timestamp getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Timestamp data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
-	public Time getTime() {
+	public LocalTime getTime() {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(LocalTime time) {
 		this.time = time;
 	}
 

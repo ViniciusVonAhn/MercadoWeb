@@ -1,6 +1,7 @@
 package local.controller;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,10 @@ public class VendaController {
 	
 	@PostMapping
 	public Venda vender(@RequestBody Venda venda) {
+		LocalDate today = LocalDate.now();
+		LocalTime time = LocalTime.now();
+		venda.setData(today);
+		venda.setTime(time);
 		return VendaDAO.save(venda);
 	}
 	
