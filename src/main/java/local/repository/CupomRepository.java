@@ -11,7 +11,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import local.model.Cupom;
-import local.model.CupomId;
 
 @Repository
 @Transactional()
@@ -25,4 +24,9 @@ public interface CupomRepository extends JpaRepository<Cupom, Integer>{
 	
 	List<Cupom> findByCupomIdCupomId(Integer id);
 	
+	/**@Query(
+			value = "SELECT p.id, p.nome, c.quant_vendida, c.valor_produto FROM cupom c INNER JOIN produto p ON c.cupom_id = :cupom_id INNER JOIN cupom ON c.produto_id = p.id GROUP BY p.id",
+			nativeQuery = true)
+    List<Cupom> CupomById(@Param("cupom_id")int cupom_id);
+    **/
 }

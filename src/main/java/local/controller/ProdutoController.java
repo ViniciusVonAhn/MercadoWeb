@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import local.model.Produto;
@@ -103,6 +101,11 @@ public class ProdutoController {
 	@GetMapping("/nome/{nome}")
 	public List<Produto> busca(@PathVariable("nome")String nome) {
 		return ProdutoDAO.findByNomeIgnoreCase(nome);
+	}
+	
+	@GetMapping("/nome/like/{nome}")
+	public List<Produto> buscaLike(@PathVariable("nome")String nome) {
+		return ProdutoDAO.FindByNomeLike(nome);
 	}
 	
 }

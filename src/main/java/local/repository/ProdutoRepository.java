@@ -21,6 +21,19 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
 	
 	@Modifying
     @Transactional
-	@Query("SELECT p FROM Produto p where estoque <= :estoque")
+	@Query("SELECT p FROM Produto p where estoque <= :estoque ORDER BY estoque ASC")
     List<Produto> estoqueFind(@Param("estoque")int estoque);
+	
+	/**@Query(
+			value = "SELECT * FROM produto p WHERE p.estoque <= :estoque ORDER BY p.estoque ASC",
+			nativeQuery = true)
+    List<Produto> estoqueFind2(@Param("estoque")int estoque);
+    **/
+	
+	@Modifying
+    @Transactional
+	@Query("SELECT p FROM Produto p WHERE p.nome LIKE %:nome%")
+    List<Produto> FindByNomeLike(@Param("nome")String nome);
 }
+
+
